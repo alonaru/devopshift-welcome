@@ -140,6 +140,9 @@ echo 'Running automated tests...'
             dir("${PROJECT_HOME}") {
                 echo 'Cleaning up workspace...'
                 sh 'rm -rf $PYENV_HOME'
+                            
+                // Archive the Flask log file
+                archiveArtifacts artifacts: 'flask_app.log', fingerprint: true
             }
         }
     }
