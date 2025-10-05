@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    options {
+        timestamps()
+        ansiColor('xterm')
+    }
+    
     environment {
         PYENV_HOME = "${WORKSPACE}/welcome/app/flask-volt-dashboard/.pyenv"
         PROJECT_HOME = "${WORKSPACE}/welcome/app/flask-volt-dashboard"
