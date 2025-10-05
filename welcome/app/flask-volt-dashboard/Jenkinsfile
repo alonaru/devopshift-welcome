@@ -9,18 +9,15 @@ pipeline {
         APP_ENV = 'production'
         APP_DEBUG = 'false'
     }
-    
+
     stages {
-        stage('Build') {
+         stage('Build') {
             steps {
                 echo "Building Volt app in environment: ${env.APP_ENV}"
                 echo "Debug mode is set to: ${env.APP_DEBUG}"
                 // Build steps here
             }
         }
-    }
-
-    stages {
         stage('Clone Flask Project') {
             steps {
                 // Use the Git plugin to clone the repository
