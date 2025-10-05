@@ -11,6 +11,16 @@ pipeline {
     }
 
     stages {
+        stage('Deploy') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: '3909afdc-80f4-49ba-9568-960d8f23b056', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    echo "Deploying with username ${env.USERNAME}"
+                    // Use the credentials in your deployment steps
+                    sh 'echo $USERNAME'
+                    sh 'echo $PASSWORD'
+                }
+            }
+        }
          stage('Build') {
             steps {
                 echo "Building Volt app in environment: ${env.APP_ENV}"
